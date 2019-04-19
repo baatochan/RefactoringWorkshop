@@ -16,9 +16,9 @@ class Segments
 public:
     Segments(Direction direction);
 
-    void addSegment(int x, int y);
-    bool isCollision(int x, int y) const;
-    void addHead(int x, int y);
+    void addSegment(Position position);
+    bool isCollision(Position position) const;
+    void addHead(Position position);
     std::pair<int, int> nextHead() const;
     std::pair<int, int> removeTail();
     void updateDirection(Direction newDirection);
