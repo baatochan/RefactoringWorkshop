@@ -6,6 +6,7 @@ set(SNAKE_SOURCES
     SnakeController.cpp
     SnakeSegments.cpp
     SnakeWorld.cpp
+	SnakeTorusWorld.cpp
 )
 set(SNAKE_HEADERS
     SnakeController.hpp
@@ -14,6 +15,8 @@ set(SNAKE_HEADERS
     SnakePosition.hpp
     SnakeSegments.hpp
     SnakeWorld.hpp
+	SnakeWorldI.hpp
+	SnakeTorusWorld.hpp
 )
 add_library(${TARGET_NAME} STATIC ${SNAKE_SOURCES} ${SNAKE_HEADERS})
 target_link_libraries(${TARGET_NAME} DynamicEvents)

@@ -5,7 +5,7 @@
 #include "IPort.hpp"
 #include "EventT.hpp"
 
-#include "SnakeWorld.hpp"
+#include "SnakeWorldI.hpp"
 
 namespace Snake
 {
@@ -81,7 +81,7 @@ void Segments::updateDirection(Direction newDirection)
     }
 }
 
-void Segments::nextStep(const World &world)
+void Segments::nextStep(const WorldI &world)
 {
     updateSegments(nextHead(), world);
 }
@@ -106,7 +106,7 @@ void Segments::addHeadSegment(Position position)
     m_displayPort.send(std::make_unique<EventT<DisplayInd>>(placeNewHead));
 }
 
-void Segments::removeTailSegmentIfNotScored(Position position, const World &world)
+void Segments::removeTailSegmentIfNotScored(Position position, const WorldI &world)
 {
     if (world.eatFood(position)) {
         ScoreInd l_ind{};
@@ -117,7 +117,7 @@ void Segments::removeTailSegmentIfNotScored(Position position, const World &worl
     }
 }
 
-void Segments::updateSegments(Position position, const World &world)
+void Segments::updateSegments(Position position, const WorldI &world)
 {
     if (isCollision(position) or not world.contains(position)) {
         m_scorePort.send(std::make_unique<EventT<LooseInd>>());

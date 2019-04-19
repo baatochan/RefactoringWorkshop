@@ -6,6 +6,7 @@
 
 #include "IEventHandler.hpp"
 #include "SnakeInterface.hpp"
+#include "SnakeWorldI.hpp"
 
 class Event;
 class IPort;
@@ -37,7 +38,7 @@ public:
     void receive(std::unique_ptr<Event> e) override;
 
 private:
-    std::unique_ptr<World> m_world;
+    std::unique_ptr<WorldI> m_world;
     std::unique_ptr<Segments> m_segments;
 
     void handleTimeoutInd();

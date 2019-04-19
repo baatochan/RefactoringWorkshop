@@ -4,6 +4,7 @@
 
 #include "SnakePosition.hpp"
 #include "SnakeDimension.hpp"
+#include "SnakeWorldI.hpp"
 
 class IPort;
 
@@ -11,7 +12,7 @@ namespace Snake
 {
 class Segments;
 
-class World
+class World : public WorldI
 {
 public:
     World(IPort& displayPort, IPort& foodPort, Dimension dimension, Position food);
