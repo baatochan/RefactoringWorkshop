@@ -11,6 +11,7 @@ set(SNAKE_HEADERS
     SnakeController.hpp
     SnakeInterface.hpp
     SnakePosition.hpp
+    SnakeDimension.hpp
     SnakeSegments.hpp
     SnakeWorld.hpp
 )
