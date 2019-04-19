@@ -49,14 +49,14 @@ void Segments::addHead(Position position)
     m_segments.push_front(position);
 }
 
-std::pair<int, int> Segments::removeTail()
+    Position Segments::removeTail()
 {
     auto tail = m_segments.back();
     m_segments.pop_back();
-    return std::make_pair(tail.x, tail.y);
+    return tail;
 }
 
-std::pair<int, int> Segments::nextHead() const
+    Position Segments::nextHead() const
 {
     Position const& currentHead = m_segments.front();
 
@@ -64,7 +64,7 @@ std::pair<int, int> Segments::nextHead() const
     newHead.x = currentHead.x + (isHorizontal(m_headDirection) ? isPositive(m_headDirection) ? 1 : -1 : 0);
     newHead.y = currentHead.y + (isVertical(m_headDirection) ? isPositive(m_headDirection) ? 1 : -1 : 0);
 
-    return std::make_pair(newHead.x, newHead.y);
+    return newHead;
 }
 
 void Segments::updateDirection(Direction newDirection)
